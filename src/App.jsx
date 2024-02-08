@@ -6,10 +6,13 @@ import Services from "./sections/Services";
 import SpecialOffer from "./sections/SpecialOffer";
 import Subscribe from "./sections/Subscribe";
 import SuperQuality from "./sections/SuperQuality";
+import Nav from "./components/Nav";
+
 
 const App = () => (
   <main className='relative'>
-    {/* <Nav/> */}
+    
+    <Nav/>
     
     <section className=" padding-b xl:padding-1 wide:padding-r">
       <Hero/>
