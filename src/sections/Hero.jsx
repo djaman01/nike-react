@@ -1,6 +1,7 @@
 import { arrowRight } from "../assets/icons"
-import { bigShoe1 } from "../assets/images" //pour import automatiquement, écrire le component image avec src={bigShoe1} qui est le nom du fichier sans - ni .png
+import { bigShoe1 } from "../assets/images" //pour import automatiquement en .map, écrire le component image avec src={bigShoe1} qui est le nom du fichier sans - ni .png
 import Button from "../components/Button"
+import { statistics } from "../constants" //Pour import les statistics automatqiueemnt en .map
 
 
 const Hero = () => {
@@ -25,6 +26,18 @@ const Hero = () => {
         <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">Discover Stylish Nike arrivals, quality comfort, and innovation for your active life.</p>
 
         <Button label="Shop now" iconURL={arrowRight} />
+
+        <div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">{/* flex-wrap:If the screen is smaller, the elements will start collapsing slowly for small devices / w-full: the elements inside the div will take all the width of the div */}
+          {statistics.map((stat) => (
+            <div key={stat.label}>  {/* stat.label en key because it's unique */}
+              <p className="text-4xl font-palanquin font-bold">{stat.value}</p>
+              <p className="leadin-7 font-montserrat text-slate-gray">{stat.label}</p>
+            </div>
+
+          ))}
+
+        </div>
+
       </div>
 
       {/* Right side of the section that will contain shoes images */}
@@ -40,7 +53,7 @@ const Hero = () => {
 
         {/* Container of the little images below the big shoe images, that we can select to see it bigger in teh image above */}
         <div>
-          
+
         </div>
 
       </div>

@@ -1,5 +1,6 @@
 import { headerLogo } from '../assets/images' //pas la peine de mettre /images/header-logo.svg, car comme on a écrit le meme nom {headerLogo} il va le reconnaitre
 import { hamburger } from '../assets/icons'
+import { navLinks } from '../constants' //import des liens de la navbar avec text
 
 const Nav = () => {
   return (
@@ -17,20 +18,27 @@ const Nav = () => {
         </a>
 
         {/* max-lg: hidden => Max-1024px = hidden / hide on screens smaller than the "lg" breakpoint, which corresponds to a maximum width of 1024 pixels. */}
-        <ul className='flex flex-1 justify-center items-center gap-16 text-slate-gray max-lg:hidden'>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Products</li>
-          <li>Contact Us</li>
+        <ul className='flex flex-1 justify-center items-center gap-16 max-lg:hidden'>
+          {navLinks.map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                className='font-montserrat leading-normal text-lg text-slate-gray'
+              >
+                {item.label}
+              </a>
+
+            </li>
+          ))}
         </ul>
 
-{/*lg:hidden => >=1024px = hidden donc n'apparait que dans les mobile device ou tablet */}
+        {/*lg:hidden => >=1024px = hidden donc n'apparait que dans les mobile device ou tablet */}
         <div className='lg:hidden'>
-          <img 
-          src={hamburger} 
-          alt="hamburger" 
-          width={25}
-          height={25}
+          <img
+            src={hamburger}
+            alt="hamburger"
+            width={25}
+            height={25}
           />
         </div>
 
