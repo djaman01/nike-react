@@ -1,10 +1,15 @@
+import { useState } from "react"
 import { arrowRight } from "../assets/icons"
 import { bigShoe1 } from "../assets/images" //pour import automatiquement en .map, écrire le component image avec src={bigShoe1} qui est le nom du fichier sans - ni .png
 import Button from "../components/Button"
-import { statistics } from "../constants" //Pour import les statistics automatqiueemnt en .map
-
+import ShoeCard from "../components/ShoeCard"
+import { shoes, statistics } from "../constants" //Pour import les statistics automatqiueemnt en .map
 
 const Hero = () => {
+
+  //UseState pour store les images de la big Shoe et qui par défaut montre la bigShoe1
+  const [bigShoeImg, setBigShoeImg] = useState(bigShoe1)
+
   return (
     <section
       id='home' //To scroll to this section by clicking on the home button on the nav bar
@@ -41,21 +46,27 @@ const Hero = () => {
       </div>
 
       {/* Right side of the section that will contain shoes images */}
-
       <div className="relative flex flex-1 justify-center items-center bg-primary bg-hero bg-cover bg-center xl:min-h-screen max-xl:py-40">     {/*bg-hero= custom class / flex-1: so the image inside it expands nicely  */}
         <img
-          src={bigShoe1}
+          src={bigShoeImg} //state qui par défaut montre bigShoe1
           alt="Shoe 1"
           width={610}
           height={14}
           className="object-contain relative z-10"
         />
-
         {/* Container of the little images below the big shoe images, that we can select to see it bigger in teh image above */}
-        <div>
+        <div className="flex absolute -bottom-[5%] gap-4 sm:gap-6 sm:left-[10%] max-sm:px-6">
+          {shoes.map((e) => (
+            <div key={e}>
+              <ShoeCard
+                imgURL={e}
+                changeBigShoeImg={(element) => {setBigShoeImg(element) }} //element= paramètre dont la valeur =imgURL.bigShoe donné dans le component ShoeCard => Permet de changer big shoe image en fonction s"élection miniature
+                bigShoeImg={bigShoeImg} //
 
+              />
+            </div>
+          ))}
         </div>
-
       </div>
 
     </section>
