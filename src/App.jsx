@@ -14,7 +14,7 @@ const App = () => (
     
     <Nav/>
     
-    <section className=" padding-b xl:padding-1 wide:padding-r">
+    <section className=" padding-b xl:padding-r xl:padding-l">
       <Hero/>
     </section>
 
