@@ -3,7 +3,7 @@
 const ShoeCard = ({ imgURL, changeBigShoeImg, bigShoeImg }) => {
 
   // bigShoe= 2eme propertY des objets de l'array shoes dans index.js/Dans Hero.jsx on va mapper sur l'array shoes
-  //Dans Hero.jsx => props: imgURL={e} / bigShoeImg= la state bigShoeImg qui a pour valeur par défaut bigShoe1 / changeBigShoeIgh est une function qui appelle setBigShoeImg(element) donc element va etre = imgURL.bigShoe = e.bigShoe = image miniature
+  //Dans Hero.jsx => props: imgURL={e} / bigShoeImg= la state bigShoeImg qui a pour valeur par défaut bigShoe1 et qui est dans la src de grande image / changeBigShoeIgh est une function qui appelle setBigShoeImg(element) donc element va etre = imgURL.bigShoe = e.bigShoe = image miniature
   //Donc  e.bigShoe = img miniature != bigShoeImg=bigShoe 1 alors change l'image de la grande chausse avec l'image de la miniature 
   const handleClick = () => {
     (bigShoeImg != imgURL.bigShoe) && changeBigShoeImg(imgURL.bigShoe)
